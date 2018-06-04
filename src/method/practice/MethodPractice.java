@@ -43,6 +43,30 @@ public class MethodPractice {
 		System.out.println("Q31 = " + getCountOfuppertext("BorsonKhan"));
 		System.out.println("Q32 = " + getSubject(("My name Is What")));
 		System.out.println("Q33 = " + getCharacterWithoutSpace("My namei Is What"));
+		System.out.println("Q34 = " + getUniqeText("Borson Khan"));
+
+		int[] numberOne = { 4, 8, 9, 3 };
+		System.out.println("Q35 = " + getNumberArray(numberOne));
+
+		ArrayList<Integer> numberList = new ArrayList<Integer>();
+		numberList.add(2);
+		numberList.add(3);
+		numberList.add(4);
+		numberList.add(5);
+		System.out.println("Q36 = " + getSumOFList(numberList));
+		System.out.println("Q37 = " + getReverseValue("kingKhan"));
+
+		ArrayList<Integer> numberListOne = new ArrayList<Integer>();
+		numberListOne.add(2);
+		numberListOne.add(3);
+		numberListOne.add(4);
+		numberListOne.add(5);
+		System.out.println("Q38 = " + Arrays.toString(getConvertArray(numberListOne)));
+
+		int[] numArray = { 4, 8, 9, 3 };
+		System.out.println("Q39 = " + getNumberArray(numArray));
+		int[] numTwo = { 4, 8, 9, 3, 2 };
+		System.out.println("Q40 = " + Arrays.toString(getSortedArray((numTwo))));
 
 	}
 
@@ -847,7 +871,6 @@ public class MethodPractice {
 
 			}
 		}
-		
 
 		return text;
 	}
@@ -864,8 +887,26 @@ public class MethodPractice {
 	 * serving bucket = variable;
 	 * 
 	 */
-	
-	
+	public static String getUniqeText(String name) {
+		String text = " ";
+
+		name = name.replaceAll(" ", "");
+
+		name = name.toLowerCase();
+
+		text = name;
+
+		for (int i = 0; i < name.length(); i++) {
+			for (int j = i + 1; j < name.length(); j++) {
+				String character = String.valueOf(name.charAt(i));
+				if (name.charAt(i) == name.charAt(j)) {
+					text = text.replaceAll(character, "");
+
+				}
+			}
+		}
+		return text;
+	}
 
 	/*
 	 * 
@@ -878,23 +919,41 @@ public class MethodPractice {
 	 * serving bucket = variable;
 	 * 
 	 */
+	public static int getNumberArray(int[] number) {
+		int arrayNumber = 0;
+
+		for (int i = 0; i < number.length; i++) {
+			arrayNumber = arrayNumber + number[i];
+		}
+
+		return arrayNumber;
+	}
 
 	/*
 	 * 
-	 * Q36 = write a method that take one int list input and return sum of all
+	 * Q36 = write a method that take one int List input and return sum of all
 	 * value
 	 * 
-	 * input = Arraylist<Integer> mumlist
+	 * input = ArrayList<Integer> numlist
 	 * 
 	 * return = int;
 	 * 
 	 * serving bucket = variable;
 	 * 
 	 */
+	public static int getSumOFList(ArrayList<Integer> numberList) {
+		int sumOfList = 0;
+
+		for (int i = 0; i < numberList.size(); i++) {
+			sumOfList = sumOfList + numberList.get(i);
+		}
+
+		return sumOfList;
+	}
 
 	/*
 	 * 
-	 * Q37 = write method that take one string input and retrun same string in
+	 * Q37 = write method that take one string input and return same string in
 	 * reverse order'
 	 * 
 	 * input = string name;
@@ -904,6 +963,15 @@ public class MethodPractice {
 	 * serving bucket = variable
 	 * 
 	 */
+	public static String getReverseValue(String name) {
+		String value = " ";
+
+		for (int i = name.length() - 1; i >= 0; i--) {
+			value = value + (name.charAt(i));
+		}
+
+		return value;
+	}
 
 	/*
 	 * 
@@ -917,6 +985,11 @@ public class MethodPractice {
 	 * serving bucket = object list
 	 * 
 	 */
+	public static Object[] getConvertArray(ArrayList<Integer> numListOne) {
+		Object[] array = new Object[numListOne.size()];
+		array = numListOne.toArray();
+		return array;
+	}
 
 	/*
 	 * 
@@ -930,6 +1003,15 @@ public class MethodPractice {
 	 * serving bucket = list;
 	 * 
 	 */
+	public static ArrayList<Integer> getConvertList(int[] numArray) {
+		ArrayList<Integer> list = new ArrayList<Integer>();
+
+		for (int i = 0; i < numArray.length; i++) {
+			list.add(numArray[i]);
+		}
+
+		return list;
+	}
 
 	/*
 	 * 
@@ -943,6 +1025,14 @@ public class MethodPractice {
 	 * serving bucket = array;
 	 * 
 	 */
+	public static int[] getSortedArray(int[] numTwo) {
+		int[] sortArray = new int[numTwo.length];
+
+		Arrays.sort(numTwo);
+
+		sortArray = numTwo;
+		return sortArray;
+	}
 
 	/*
 	 * 
