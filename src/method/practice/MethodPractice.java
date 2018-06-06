@@ -2,6 +2,7 @@ package method.practice;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 
 public class MethodPractice {
 	public static void main(String[] args) {
@@ -67,6 +68,22 @@ public class MethodPractice {
 		System.out.println("Q39 = " + getNumberArray(numArray));
 		int[] numTwo = { 4, 8, 9, 3, 2 };
 		System.out.println("Q40 = " + Arrays.toString(getSortedArray((numTwo))));
+
+		ArrayList<Integer> numThreeList = new ArrayList<Integer>();
+		numThreeList.add(20);
+		numThreeList.add(2);
+		numThreeList.add(22);
+		numThreeList.add(10);
+
+		System.out.println("Q41 = " + getSortedList(numThreeList));
+
+		int[] numArrayOne = { 4, 7, 9, 7 };
+		System.out.println("Q42 = " + Arrays.toString(getBubbleArray(numArrayOne)));
+		//System.out.println("Q43 = " + getContainOneNumber("khan407"));
+		//System.out.println("Q44 = " + getPhoneNumberList("Borson01"));
+		System.out.println("Q45 = " + getEmail("my email is kh@gmail.com"));
+		System.out.println("Q46 = " + getAlternativeText("King khan"));
+		System.out.println("Q47 = " + getSubjectTwo("KingKhan"));
 
 	}
 
@@ -1046,6 +1063,14 @@ public class MethodPractice {
 	 * serving bucket = list;
 	 * 
 	 */
+	public static ArrayList<Integer> getSortedList(ArrayList<Integer> numThreeList) {
+		ArrayList<Integer> sortedList = new ArrayList<Integer>();
+
+		Collections.sort(numThreeList);
+		sortedList = numThreeList;
+
+		return sortedList;
+	}
 
 	/*
 	 * 
@@ -1059,10 +1084,27 @@ public class MethodPractice {
 	 * serving bucket = Array;
 	 * 
 	 */
+	public static int[] getBubbleArray(int[] numArrayOne) {
+		int[] numArray = new int[numArrayOne.length];
+		for (int i = 0; i < numArrayOne.length; i++) {
+			for (int j = i + 1; j < numArrayOne.length; j++) {
+				if (numArrayOne[i] < numArrayOne[j]) {
+
+					int subject = numArrayOne[i];
+					numArrayOne[i] = numArrayOne[j];
+					numArrayOne[j] = subject;
+
+				}
+			}
+		}
+		numArray = numArrayOne;
+
+		return numArray;
+	}
 
 	/*
 	 * 
-	 * Q43 = write a method that take one string inout which contain (a) number
+	 * Q43 = write a method that take one string input which contain (7) number
 	 * and return that as a int;
 	 * 
 	 * input = String name;
@@ -1071,21 +1113,7 @@ public class MethodPractice {
 	 * 
 	 * serving bucket = variable;
 	 * 
-	 */
-
-	/*
-	 * 
-	 * Q44 = write a method that take one string input Which contain some
-	 * numnbers then collect all of those numbers and rerurn in a list;
-	 * 
-	 * input = string name;
-	 * 
-	 * return type = ArrayList<Integer> ;
-	 * 
-	 * serving bucket = list;
-	 * 
-	 */
-
+	 *
 	/*
 	 * 
 	 * Q45 = write a method that take one string input which contain an email
@@ -1098,6 +1126,21 @@ public class MethodPractice {
 	 * serving bucket = variable;
 	 * 
 	 */
+	public static String getEmail(String name) {
+		String email = " ";
+
+		String[] wordArray = name.split(" ");
+
+		for (int i = 0; i < wordArray.length; i = i + 1) {
+			if (wordArray[i].matches("[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+")) {
+
+				email = wordArray[i];
+
+			}
+		}
+
+		return email;
+	}
 
 	/**
 	 * 
@@ -1112,6 +1155,20 @@ public class MethodPractice {
 	 * 
 	 */
 
+	public static String getAlternativeText(String name) {
+		String text = " ";
+
+		name.toLowerCase();
+
+		name = name.replaceAll(" ", "");
+
+		for (int i = 0; i < name.length(); i = i + 2) {
+			text = text + (name.charAt(i));
+		}
+
+		return text;
+	}
+
 	/*
 	 * 
 	 * Q47 = write a method that take one string input and return the same
@@ -1125,5 +1182,16 @@ public class MethodPractice {
 	 * serving bucket = variable;
 	 * 
 	 */
+	public static String getSubjectTwo(String name) {
+		String subject = " ";
+
+		for(int i=0;i<name.length();i=i+1){
+			if(i%2 == 1){
+			subject = subject +  Character.toUpperCase((name.charAt(i)));
+		}else{
+			subject = subject + Character.toLowerCase(name.charAt(i));
+		}}
+		return subject;
+	}
 
 }
